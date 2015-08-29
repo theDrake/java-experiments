@@ -3,9 +3,9 @@
 //
 //    Author: David C. Drake (http://davidcdrake.com)
 //
-// Description: Contains a MagicSquare class for creating a colorful square of
-//              numbers such that the sum of each row, column, and diagonal is
-//              the same. That sum is also displayed below the square.
+// Description: Contains a MagicSquare applet class for creating a colorful
+//              square of numbers such that the sum of each row, column, and
+//              diagonal is the same. That sum is displayed below the square.
 //*****************************************************************************
 
 import java.awt.*;
@@ -19,6 +19,7 @@ public class MagicSquare extends Applet
   final int NUM_ROWS = 5,
             NUM_COLS = NUM_ROWS,
             DELAY = 1000;
+
   Random r = new Random();
   Timer timer;
   Color special;

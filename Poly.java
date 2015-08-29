@@ -3,7 +3,7 @@
 //
 //      Author: David C. Drake (http://davidcdrake.com)
 //
-// Description: Contains a Poly class for creation and manipulation of
+// Description: Contains a Poly applet class for creation and manipulation of
 //              polygons.
 //*****************************************************************************
 
@@ -13,10 +13,14 @@ import java.awt.event.*;
 
 public class Poly extends Applet implements MouseListener, MouseMotionListener
 {
-  final int MAX_POINTS = 100;
-  int[] x = new int[MAX_POINTS];
-  int[] y = new int[MAX_POINTS];
-  int points = 0, position;
+  final int APPLET_WIDTH = 300,
+            APPLET_HEIGHT = APPLET_WIDTH,
+            MAX_POINTS = 100;
+
+  int[] x = new int[MAX_POINTS],
+        y = new int[MAX_POINTS];
+  int points = 0,
+      position;
   boolean finished = false;
 
   public void init()
@@ -24,7 +28,7 @@ public class Poly extends Applet implements MouseListener, MouseMotionListener
     addMouseListener(this);
     addMouseMotionListener(this);
     setBackground(Color.black);
-    resize(300,300);
+    resize(APPLET_WIDTH, APPLET_HEIGHT);
   }
 
   public void paint(Graphics g)
@@ -77,7 +81,7 @@ public class Poly extends Applet implements MouseListener, MouseMotionListener
       x[position] = point.x;
       y[position] = point.y;
     }
-    repaint ();
+    repaint();
   }
 
   public void mouseClicked(MouseEvent event) {}

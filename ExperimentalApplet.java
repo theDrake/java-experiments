@@ -28,7 +28,7 @@ public class ExperimentalApplet extends java.applet.Applet
     x[2] = centerX + (2 * height / 3);
     y[2] = centerY + (height / 3);
 
-    resize(500,500);
+    resize(500, 500);
   }
 
   public void paint(Graphics g)

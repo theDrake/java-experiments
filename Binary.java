@@ -15,8 +15,9 @@ public class Binary
   public static void main(String[] args) throws IOException
   {
     final int BINARY_LENGTH = 16,
-              INT_MAX = 32767,
-              INT_MIN = 0;
+              INT_MIN = 0,
+              INT_MAX = 32767;
+
     String option,
            repeat = "y",
            binary;
@@ -28,7 +29,7 @@ public class Binary
     {
       num = 0;
       binary = "";
-      System.out.print("Type 'b' for binary to decimal, 'd' for decimal to "
+      System.out.print("Type 'b' for binary to decimal, 'd' for decimal to " +
                        "binary: ");
       option = stdin.readLine();
 

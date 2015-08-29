@@ -61,6 +61,7 @@ class NumberList
   public void sort(NumberNode currentNode) // Sorts in descending order.
   {
     int temp1, temp2;
+
     if (currentNode.next != null)
     {
       temp1 = currentNode.num.value;
@@ -78,6 +79,7 @@ class NumberList
   {
     String result = "";
     NumberNode current = list;
+
     while (current != null)
     {
       result += current.num.toString() + "\n";

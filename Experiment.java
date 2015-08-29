@@ -10,8 +10,8 @@ public class Experiment
 {
   public static void main(String[] args)
   {
-    int r = 0,
-        s = 0,
+    int r,
+        s,
         w = 12,
         sum = 0;
 
