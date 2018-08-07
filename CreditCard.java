@@ -1,12 +1,12 @@
-//*****************************************************************************
+//******************************************************************************
 //    Filename: CreditCard.java
 //
-//      Author: David C. Drake (http://davidcdrake.com)
+//      Author: David C. Drake (https://davidcdrake.com)
 //
 // Description: Contains a CreditCard applet class for calculating monthly
-//              interest and payment amounts according to data initially
-//              entered by the user.
-//*****************************************************************************
+//              interest and payment amounts according to data initially entered
+//              by the user.
+//******************************************************************************
 
 import java.applet.Applet;
 import java.awt.*;
@@ -14,39 +14,23 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.text.NumberFormat;
 
-public class CreditCard extends Applet implements ActionListener
-{
-  final int TEXT_FIELD_SIZE = 5,
-            APPLET_WIDTH = 390,
-            APPLET_HEIGHT = 110;
-  final double MONTHLY_PAYMENT_RATIO = 0.02,
-               MIN_MONTHLY_PAYMENT = 20.0;
+public class CreditCard extends Applet implements ActionListener {
+  final int TEXT_FIELD_SIZE = 5, APPLET_WIDTH = 390, APPLET_HEIGHT = 110;
+  final double MONTHLY_PAYMENT_RATIO = 0.02, MIN_MONTHLY_PAYMENT = 20.0;
 
-  double initialBalance,
-         balance,
-         interestRate,
-         interestCharge,
-         totalInterest,
-         percentage,
-         payment;
+  double initialBalance, balance, interestRate, interestCharge, totalInterest,
+         percentage, payment;
   NumberFormat dollar = NumberFormat.getCurrencyInstance(),
                percent = NumberFormat.getPercentInstance();
-  private Label inputBLabel,
-                inputIRLabel,
-                outputBLabel,
-                outputILabel,
-                outputPLabel,
-                resultBLabel,
-                resultILabel,
-                resultPLabel;
+  private Label inputBLabel, inputIRLabel, outputBLabel, outputILabel,
+                outputPLabel, resultBLabel, resultILabel, resultPLabel;
   private TextField inputBalance, inputInterestRate;
   private Button monthButton;
   private String text;
   private boolean firstTime;
   //private JPanel myPanel;
 
-  public void init()
-  {
+  public void init() {
     firstTime = true;
     inputBLabel = new Label("Initial balance:");
     inputIRLabel = new Label("Interest rate:");
@@ -90,11 +74,9 @@ public class CreditCard extends Applet implements ActionListener
     setSize(APPLET_WIDTH, APPLET_HEIGHT);
   }
 
-  public void actionPerformed(ActionEvent event)
-  {
+  public void actionPerformed(ActionEvent event) {
     // First time button gets pushed, read user data from TextFields:
-    if (firstTime)
-    {
+    if (firstTime) {
       text = inputInterestRate.getText();
       interestRate = Double.parseDouble(text) / 100;
       text = inputBalance.getText();
@@ -104,29 +86,21 @@ public class CreditCard extends Applet implements ActionListener
     }
 
     // Calculate monthly payment:
-    if (balance <= MIN_MONTHLY_PAYMENT)
-    {
+    if (balance <= MIN_MONTHLY_PAYMENT) {
       payment = balance;
       balance = 0.0;
-    }
-    else if ((balance * MONTHLY_PAYMENT_RATIO) > MIN_MONTHLY_PAYMENT)
-    {
+    } else if ((balance * MONTHLY_PAYMENT_RATIO) > MIN_MONTHLY_PAYMENT) {
       payment = balance * MONTHLY_PAYMENT_RATIO;
-    }
-    else
-    {
+    } else {
       payment = MIN_MONTHLY_PAYMENT;
     }
     balance -= payment;
 
     // Calculate monthly interest charge:
-    if (balance > 0.0)
-    {
+    if (balance > 0.0) {
       interestCharge = balance * interestRate;
       balance += interestCharge;
-    }
-    else
-    {
+    } else {
       interestCharge = 0.0;
       percentage = 0.0;
     }

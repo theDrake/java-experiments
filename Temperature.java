@@ -1,22 +1,19 @@
-//*****************************************************************************
+//******************************************************************************
 //    Filename: Temperature.java
 //
-//      Author: David C. Drake (http://davidcdrake.com)
+//      Author: David C. Drake (https://davidcdrake.com)
 //
 // Description: Contains a Temperature class that converts Fahrenheit to
 //              Celsius.
-//*****************************************************************************
+//******************************************************************************
 
 import java.io.*;
 
-public class Temperature
-{
-  public static void main(String[] args) throws IOException
-  {
+public class Temperature {
+  public static void main(String[] args) throws IOException {
     final double BASE = 32;
     final double CONVERSION_FACTOR = 5.0 / 9.0;
-    BufferedReader stdin = new BufferedReader
-      (new InputStreamReader(System.in));
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     double tempF, tempC;
 
     System.out.print("Enter temperature in Fahrenheit: ");

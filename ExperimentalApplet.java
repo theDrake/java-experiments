@@ -1,22 +1,19 @@
-//*****************************************************************************
+//******************************************************************************
 //    Filename: ExperimentalApplet.java
 //
-//      Author: David C. Drake (http://davidcdrake.com)
+//      Author: David C. Drake (https://davidcdrake.com)
 //
 // Description: An ExperimentalApplet class. For, you know, experiments.
-//*****************************************************************************
+//******************************************************************************
 
 import java.awt.*;
 import java.applet.Applet;
 
-public class ExperimentalApplet extends java.applet.Applet
-{
-  int[] x = new int[3],
-        y = new int[3];
+public class ExperimentalApplet extends java.applet.Applet {
+  int[] x = new int[3], y = new int[3];
   int centerX, centerY, height;
 
-  public void init()
-  {
+  public void init() {
     centerX = 250;
     centerY = 250;
     height = 300;
@@ -31,8 +28,7 @@ public class ExperimentalApplet extends java.applet.Applet
     resize(500, 500);
   }
 
-  public void paint(Graphics g)
-  {
+  public void paint(Graphics g) {
     g.setColor(Color.blue);
     g.fillPolygon(x, y, 3);
     g.setColor(Color.red);

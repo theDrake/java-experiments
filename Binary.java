@@ -1,32 +1,24 @@
-//*****************************************************************************
+//******************************************************************************
 //    Filename: Binary.java
 //
-//      Author: David C. Drake (http://davidcdrake.com)
+//      Author: David C. Drake (https://davidcdrake.com)
 //
 // Description: Contains a Binary class for converting numbers from binary to
 //              decimal and vice versa.
-//*****************************************************************************
+//******************************************************************************
 
 import java.io.*;
 import java.lang.*;
 
-public class Binary
-{
-  public static void main(String[] args) throws IOException
-  {
-    final int BINARY_LENGTH = 16,
-              INT_MIN = 0,
-              INT_MAX = 32767;
+public class Binary {
+  public static void main(String[] args) throws IOException {
+    final int BINARY_LENGTH = 16, INT_MIN = 0, INT_MAX = 32767;
 
-    String option,
-           repeat = "y",
-           binary;
+    String option, repeat = "y", binary;
     int x, n, power, num, remainder;
-    BufferedReader stdin = new BufferedReader
-      (new InputStreamReader(System.in));
+    BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 
-    do
-    {
+    do {
       num = 0;
       binary = "";
       System.out.print("Type 'b' for binary to decimal, 'd' for decimal to " +
@@ -34,37 +26,28 @@ public class Binary
       option = stdin.readLine();
 
       // Binary to decimal:
-      if (option.equalsIgnoreCase ("b"))
-      {
-        do
-        {
+      if (option.equalsIgnoreCase ("b")) {
+        do {
           x = 0;
-          System.out.print("Enter a " + BINARY_LENGTH +
-                           "-bit binary number: ");
+          System.out.print("Enter a " + BINARY_LENGTH + "-bit binary number: ");
           binary = stdin.readLine();
-          if (binary.length() != BINARY_LENGTH)
-          {
+          if (binary.length() != BINARY_LENGTH) {
             System.out.println("You must enter exactly " + BINARY_LENGTH +
                                " digits.\n");
             x = 1;
-          }
-          else
-          {
+          } else {
             n = 0;
-            while (x == 0 && n < BINARY_LENGTH)
-            {
-              if (binary.charAt(n) != '0' && binary.charAt(n) != '1')
-              {
+            while (x == 0 && n < BINARY_LENGTH) {
+              if (binary.charAt(n) != '0' && binary.charAt(n) != '1') {
                 System.out.println ("All digits must be 0 or 1.\n");
                 x = 1;
               }
               n++;
             }
           }
-        }while (x == 1);
+        } while (x == 1);
         power = 0;
-        for (x = BINARY_LENGTH - 1; x >= 0; x--)
-        {
+        for (x = BINARY_LENGTH - 1; x >= 0; x--) {
           num += ((binary.charAt(x) - 48) * Math.pow(2, power));
           power++;
         }
@@ -72,26 +55,20 @@ public class Binary
       }
 
       // Decimal to binary:
-      if (option.equalsIgnoreCase ("d"))
-      {
-        do
-        {
+      if (option.equalsIgnoreCase ("d")) {
+        do {
           System.out.print("Enter a decimal number between " + INT_MIN +
                            " and " + INT_MAX + ": ");
           num = Integer.parseInt(stdin.readLine());
-          if (num < INT_MIN || num > INT_MAX)
-          {
+          if (num < INT_MIN || num > INT_MAX) {
             System.out.println("The number must be no less than " + INT_MIN +
                                " and no greater than " + INT_MAX + ".\n");
             x = 1;
-          }
-          else
-          {
+          } else {
             x = 0;
           }
-        }while (x == 1);
-        for (x = 0; x < BINARY_LENGTH; x++)
-        {
+        } while (x == 1);
+        for (x = 0; x < BINARY_LENGTH; x++) {
           remainder = num % 2;
           binary = remainder + binary;
           num = num / 2;
@@ -101,6 +78,6 @@ public class Binary
       System.out.print("\nDo you want to convert another number? (y/n) ");
       repeat = stdin.readLine();
       System.out.println("\n");
-    }while(repeat.equalsIgnoreCase("y"));
+    } while(repeat.equalsIgnoreCase("y"));
   }
 }

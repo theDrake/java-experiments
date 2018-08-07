@@ -1,11 +1,11 @@
-//*****************************************************************************
+//******************************************************************************
 //    Filename: Mandelbrot.java
 //
-//      Author: David C. Drake (http://davidcdrake.com)
+//      Author: David C. Drake (https://davidcdrake.com)
 //
 // Description: Contains a Mandelbrot applet class for drawing Mandelbrot
 //              fractals according to coordinates entered by the user.
-//*****************************************************************************
+//******************************************************************************
 
 import java.applet.*;
 import java.awt.*;
@@ -13,29 +13,20 @@ import java.awt.image.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Mandelbrot extends java.applet.Applet implements ActionListener
-{
-  final int MAX_RECURSION = 400,
-            TEXTFIELD_SIZE = 5,
-            APPLET_WIDTH = 900,
-            APPLET_HEIGHT = APPLET_WIDTH,
-            APPLET_LOCATION_X = 150,
-            APPLET_LOCATION_Y = 20,
-            CANVAS_WIDTH = 300,
-            CANVAS_HEIGHT = CANVAS_WIDTH,
-            CANVAS_LOCATION_X = 0,
-            CANVAS_LOCATION_Y = 100,
-            CANVAS_BOUNDS_WIDTH = 350,
-            CANVAS_BOUNDS_HEIGHT = 380,
-            MAX_COLOR = 255;
+public class Mandelbrot extends java.applet.Applet implements ActionListener {
+  final int MAX_RECURSION = 400, TEXTFIELD_SIZE = 5, APPLET_WIDTH = 900,
+            APPLET_HEIGHT = APPLET_WIDTH, APPLET_LOCATION_X = 150,
+            APPLET_LOCATION_Y = 20, CANVAS_WIDTH = 300,
+            CANVAS_HEIGHT = CANVAS_WIDTH, CANVAS_LOCATION_X = 0,
+            CANVAS_LOCATION_Y = 100, CANVAS_BOUNDS_WIDTH = 350,
+            CANVAS_BOUNDS_HEIGHT = 380, MAX_COLOR = 255;
 
   private Button redrawButton;
   private Label xminLabel, xmaxLabel, yminLabel, ymaxLabel, titleLabel;
   private TextField xminField, xmaxField, yminField, ymaxField;
   private Canvas myCanvas;
 
-  public void init()
-  {
+  public void init() {
     setSize(APPLET_WIDTH, APPLET_HEIGHT);
     setLocation(APPLET_LOCATION_X, APPLET_LOCATION_Y);
     //setLayout(null);
@@ -70,8 +61,7 @@ public class Mandelbrot extends java.applet.Applet implements ActionListener
     redrawButton.addActionListener(this);
   }
 
-  public void paint(Graphics g)
-  {
+  public void paint(Graphics g) {
     int count;
     double xmin = Double.parseDouble(xminField.getText()),
            xmax = Double.parseDouble(xmaxField.getText()),
@@ -79,21 +69,16 @@ public class Mandelbrot extends java.applet.Applet implements ActionListener
            ymax = Double.parseDouble(ymaxField.getText()),
            stepX = (xmax - xmin) / CANVAS_WIDTH,
            stepY = (ymax - ymin) / CANVAS_HEIGHT,
-           calc_x = xmin,
-           calc_y = ymin;
+           calc_x = xmin, calc_y = ymin;
 
-    for (int x = 0; x < CANVAS_WIDTH; x++)
-    {
-      for (int y = 0; y < CANVAS_HEIGHT; y++)
-      {
+    for (int x = 0; x < CANVAS_WIDTH; x++) {
+      for (int y = 0; y < CANVAS_HEIGHT; y++) {
         count = Calculate(calc_x, calc_y, 0, 0, 0);
         count = (int) (((double) count / MAX_RECURSION) * MAX_COLOR);
-        if (count != 0)
-        {
+        if (count != 0) {
           count *= 10;
         }
-        if (count > MAX_COLOR)
-        {
+        if (count > MAX_COLOR) {
           count = MAX_COLOR;
         }
         Color pixelColor = new Color(count, count, count);
@@ -108,26 +93,18 @@ public class Mandelbrot extends java.applet.Applet implements ActionListener
     calc_y = calc_y + stepY;
   }
 
-  public void actionPerformed(ActionEvent e)
-  {
+  public void actionPerformed(ActionEvent e) {
     repaint();
   }
 
-  private int Calculate(double OrigX,
-                        double OrigY,
-                        double CurX,
-                        double CurY,
-                        int count)
-  {
+  private int Calculate(double OrigX, double OrigY, double CurX, double CurY,
+                        int count) {
     double newX = (CurX * CurX) + (CurY * CurY * -1) + OrigX,
            newY = (2 * CurX * CurY) + OrigY;
 
-    if (count >= MAX_RECURSION || (newX * newX) - (newY * newY - 1) > 2)
-    {
+    if (count >= MAX_RECURSION || (newX * newX) - (newY * newY - 1) > 2) {
       return count;
-    }
-    else
-    {
+    } else {
       return Calculate(OrigX, OrigY, newX, newY, ++count);
     }
   }
