@@ -3,8 +3,8 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains a ScoresToFile class for writing exam and lab scores,
-//              provided by the user, to a file.
+// Description: ScoresToFile class for writing user-provided exam and lab scores
+//              to a file.
 //******************************************************************************
 
 import java.io.*;

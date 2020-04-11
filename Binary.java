@@ -3,8 +3,8 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains a Binary class for converting numbers from binary to
-//              decimal and vice versa.
+// Description: Binary class for converting numbers from binary to decimal and
+//              vice versa.
 //******************************************************************************
 
 import java.io.*;

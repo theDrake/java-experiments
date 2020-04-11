@@ -3,8 +3,8 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains a Mandelbrot applet class for drawing Mandelbrot
-//              fractals according to coordinates entered by the user.
+// Description: Mandelbrot applet class for drawing Mandelbrot fractals
+//              according to user-provided coordinates.
 //******************************************************************************
 
 import java.applet.*;

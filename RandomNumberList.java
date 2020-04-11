@@ -3,9 +3,9 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains RandomNumberList, NumberList, and RandomNumber classes
-//              for generating, printing, and recursively sorting linked lists
-//              of random numbers.
+// Description: RandomNumberList, NumberList, and RandomNumber classes for
+//              generating, printing, and recursively sorting linked lists of
+//              random numbers.
 //******************************************************************************
 
 import java.util.*;

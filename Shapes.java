@@ -3,27 +3,26 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains classes for creating a variety of different shapes and
-//              a Shapes class for randomly generating and drawing an array of
-//              shapes.
+// Description: Classes to handle drawing various shapes and a RandomShapes
+//              applet class for drawing randomly-generated arrays of shapes.
 //******************************************************************************
 
 import java.awt.*;
 import java.applet.Applet;
 import java.util.Random;
 
-public class Shapes extends Applet {
+public class RandomShapes extends Applet {
   final int NUM_SHAPES = 20, DISPLAY_WIDTH = 500, DISPLAY_HEIGHT = 500;
   Random r = new Random();
-  public myShape[] shape = new myShape[NUM_SHAPES];
-  int option, count;
+  public myShape[] shapes = new myShape[NUM_SHAPES];
+  int shapeType, count;
 
   public void init() {
     setBackground(Color.white);
     resize(DISPLAY_WIDTH, DISPLAY_HEIGHT);
-    shape[0].SHAPE_MAX = DISPLAY_WIDTH / 2;
-    shape[0].SHAPE_MIN = 20;
-    shape[0].DISPLAY_SIZE = DISPLAY_WIDTH;
+    shapes[0].SHAPE_MAX = DISPLAY_WIDTH / 2;
+    shapes[0].SHAPE_MIN = 20;
+    shapes[0].DISPLAY_SIZE = DISPLAY_WIDTH;
   }
 
   //----------------------------------------------------------------------------
@@ -31,23 +30,23 @@ public class Shapes extends Applet {
   //----------------------------------------------------------------------------
   public void paint(Graphics g) {
     for (count = 0; count < NUM_SHAPES; count++) {
-      option = Math.abs(r.nextInt() % 4);
-      switch (option) {
+      shapeType = Math.abs(r.nextInt() % 4);
+      switch (shapeType) {
         case 0:
-          shape[count] = new myEquilateralTriangle(g);
-          ((myEquilateralTriangle) shape[count]).draw(g);
+          shapes[count] = new myEquilateralTriangle(g);
+          ((myEquilateralTriangle) shapes[count]).draw(g);
           break;
         case 1:
-          shape[count] = new mySquare(g);
-          ((mySquare) shape[count]).draw(g);
+          shapes[count] = new mySquare(g);
+          ((mySquare) shapes[count]).draw(g);
           break;
         case 2:
-          shape[count] = new myRectangle(g);
-          ((myRectangle) shape[count]).draw(g);
+          shapes[count] = new myRectangle(g);
+          ((myRectangle) shapes[count]).draw(g);
           break;
         case 3:
-          shape[count] = new myCircle(g);
-          ((myCircle) shape[count]).draw(g);
+          shapes[count] = new myCircle(g);
+          ((myCircle) shapes[count]).draw(g);
           break;
       }
     }
@@ -84,8 +83,7 @@ class myEquilateralTriangle extends myShape {
   public int height;
   private int[] xPoints = new int[3], yPoints = new int[3];
 
-  public myEquilateralTriangle(Graphics g)
-  {
+  public myEquilateralTriangle(Graphics g) {
     super(g);
     height = Math.abs(r.nextInt() % SHAPE_MAX) + SHAPE_MIN;
     xPoints[0] = centerX - (2 * height / 3);
@@ -140,8 +138,8 @@ class myCircle extends myShape {
   }
 
   public void draw(Graphics g) {
-    g.fillOval(centerX - diameter / 2, centerY - diameter / 2,
-               diameter, diameter);
+    g.fillOval(centerX - diameter / 2, centerY - diameter / 2, diameter,
+               diameter);
     displayCoordinates(g);
   }
 }

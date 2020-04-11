@@ -3,7 +3,7 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains an Experiment class for...experimenting...with stuff.
+// Description: Experiment class. For...experimenting...with stuff.
 //******************************************************************************
 
 public class Experiment {

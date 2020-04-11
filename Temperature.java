@@ -3,8 +3,7 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains a Temperature class that converts Fahrenheit to
-//              Celsius.
+// Description: Temperature class for converting Fahrenheit to Celsius.
 //******************************************************************************
 
 import java.io.*;

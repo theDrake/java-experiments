@@ -3,7 +3,7 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: An ExperimentalApplet class. For, you know, experiments.
+// Description: ExperimentalApplet class. For science.
 //******************************************************************************
 
 import java.awt.*;

@@ -3,8 +3,7 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains a Poly applet class for creation and manipulation of
-//              polygons.
+// Description: Poly applet class for creating and manipulating polygons.
 //******************************************************************************
 
 import java.applet.Applet;

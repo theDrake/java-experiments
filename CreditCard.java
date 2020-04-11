@@ -3,9 +3,8 @@
 //
 //      Author: David C. Drake (https://davidcdrake.com)
 //
-// Description: Contains a CreditCard applet class for calculating monthly
-//              interest and payment amounts according to data initially entered
-//              by the user.
+// Description: CreditCard applet class for calculating monthly interest and
+//              payment amounts according to user-provided data.
 //******************************************************************************
 
 import java.applet.Applet;
